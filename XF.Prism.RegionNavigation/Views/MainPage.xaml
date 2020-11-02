@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF.Prism.RegionNavigation.Views.MainPage"
+             xmlns:prism="http://prismlibrary.com"
+             Title="{Binding Title}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="View A" Grid.Column="0" Command="{Binding NavigateToMainRegionCommand}" CommandParameter="ViewA" />
+            <Button Text="View B" Grid.Column="1" Command="{Binding NavigateToMainRegionCommand}" CommandParameter="ViewB" />
+        </Grid>
+
+        <Label Grid.Row="1" Text="{Binding NavigationResultMessage}" />
+
+        <ContentView Grid.Row="2" prism:RegionManager.RegionName="MainRegion"/>
+    </Grid>
+
+</ContentPage>
